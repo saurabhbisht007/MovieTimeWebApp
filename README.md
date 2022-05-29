@@ -22,6 +22,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#journey">Project Journey</a></li>
+      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -48,6 +51,7 @@ For particular movie, we will get details like movie poster, overview, cast and 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Project Journey -->
 ### Project Journey
 This is how I acheived my task by doing it on 4 slots:
 Week 1:
