@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block body %}
+
+	<div class="slider movie-items">
+		<div class="container">
+			<div class="row">
+				<div class="slick-multiItemSlider">
+					{%for data in movies_upcoming%}
+					<div class="movie-item">
+						<div class="mv-img">
+							<a href="#"><img src="{{data['Poster_Links']}}" alt="" width="285" height="437"></a>
+						</div>
+						<div class="title-in">
+							<div class="cate">
+								{%for gen in data['Genre']%}
+									<span class="blue"><a href="#">{{gen}}</a></span>
+								{%endfor%}
+							</div>
+							<form action="/moviedetails" method="GET">
+								<button type="submit" name="upcoming" class="mv-item-infor"
+									style="background: transparent !important;border: 0px;"
+									value="{{data['Movie_Title']}}">
+									<h6><a>{{data['Movie_Title']}}</a></h6>
+								</button>
+							</form>
+							<p><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+						</div>
+					</div>
+					{%endfor%}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="movie-items full-width">
+		<div class="container">
+			<div class="row full-width">
+				<div class="col-md-12">
+						<div class="tab-content">
+							<div id="tab1" class="tab active">
+								<div class="title-hd">
+									<h2>#Popular</h2>
+									<a href="popular" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+								</div>
+								<div class="row">
+									<div class="slick-multiItem">
+										{%for data in movies_popular%}
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="{{data['Poster_Links']}}" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+												<form action="/moviedetails" method="GET">
+													<button type="submit" name="popular" class="mv-item-infor"
+														style="background: transparent !important;border: 0px;"
+														value="{{data['Movie_Title']}}">
+														<h6><a> Read more </a></h6>
+													</button>
+												</form>
+												</div>
+												<div class="title-in">
+													<form action="/" method="POST">
+														<button type="submit" name="search" class="mv-item-infor"
+															style="background: transparent !important;border: 0px;"
+															value="{{data['Movie_Title']}}">
+															<h6><a>{{data['Movie_Title']}}</a></h6>
+														</button>
+													</form>
+													<p><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+												</div>
+											</div>
+										</div>
+										{%endfor%}
+									</div>
+								</div>
+							</div>							
+						</div>
+				</div>
+				<div class="col-md-12">
+						<div class="tab-content">
+							<div id="tab1" class="tab active">
+								<div class="title-hd">
+									<h2>#Top rated</h2>
+									<a href="toprated" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+								</div>
+								<div class="row">
+									<div class="slick-multiItem">
+										{%for data in movies_top_rated%}
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="{{data['Poster_Links']}}" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+												<form action="/moviedetails" method="GET">
+													<button type="submit" name="top_rated" class="mv-item-infor"
+														style="background: transparent !important;border: 0px;"
+														value="{{data['Movie_Title']}}">
+														<h6><a> Read more </a></h6>
+													</button>
+												</form>
+												</div>
+												<div class="title-in">
+													<form action="/" method="POST">
+														<button type="submit" name="search" class="mv-item-infor"
+															style="background: transparent !important;border: 0px;"
+															value="{{data['Movie_Title']}}">
+															<h6><a>{{data['Movie_Title']}}</a></h6>
+														</button>
+													</form>
+													<p><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+												</div>
+											</div>
+										</div>
+										{%endfor%}
+									</div>
+								</div>
+							</div>						
+						</div>
+				</div>
+
+				<div class="col-md-12">				
+						<div class="tab-content">	
+							<div id="tab1" class="tab active">
+								<div class="title-hd">
+									<h2>#Trending</h2>
+									<a href="trending" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+								</div>
+								<div class="row">
+									<div class="slick-multiItem">
+										{%for data in movies_trending%}
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="{{data['Poster_Links']}}" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+												<form action="/moviedetails" method="GET">
+													<button type="submit" name="trending" class="mv-item-infor"
+														style="background: transparent !important;border: 0px;"
+														value="{{data['Movie_Title']}}">
+														<h6><a> Read more </a></h6>
+													</button>
+												</form>
+												</div>
+												<div class="title-in">
+													<form action="/" method="POST">
+														<button type="submit" name="search" class="mv-item-infor"
+															style="background: transparent !important;border: 0px;"
+															value="{{data['Movie_Title']}}">
+															<h6><a>{{data['Movie_Title']}}</a></h6>
+														</button>
+													</form>
+													<p><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+												</div>
+											</div>
+										</div>
+										{%endfor%}
+									</div>
+								</div>
+							</div>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+
+	{% endblock body %}

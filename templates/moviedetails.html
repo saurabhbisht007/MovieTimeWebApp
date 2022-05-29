@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="hero mv-single-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1> movie listing - list</h1>
+				<ul class="breadcumb">
+					<li class="active"><a href="#">Home</a></li>
+					<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+				</ul> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single movie-single movie_single">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="movie-img sticky-sb">
+                    <img src="{{movie['Poster_Links']}}" alt="">
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="movie-single-ct main-content">
+                    <h1 class="bd-hd">{{movie['Movie_Title']}}<span> {{movie['Release_Date']}}</span></h1>
+                    
+                    <div class="tab review mv-user-review-item user-infor">
+                    <h3>{{movie['Rating']}} / 10</h3>
+                    
+                    <div class="no-star">
+                        {% for star in range(0,10) %}
+                        {% if (movie['Rating'])|int > star %}
+                        <i class="ion-android-star"></i>
+                        {% else %}
+                        <i class="ion-android-star last"></i>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                </div>
+                <div class="cate">
+                    {%for gen in movie['Genre']%}
+                        <span style="margin: 1px;" class="cate blue">
+                            {% set lv_url = gen.replace(' ', '+') %}
+                            <a href="http://www.google.com/search?q=Genre+{{lv_url}}">{{gen}}</a>
+                        </span>
+                    {%endfor%}
+                </div>
+                <p>{{movie['Overview']}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

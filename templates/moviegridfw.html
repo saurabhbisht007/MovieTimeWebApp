@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="hero common-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1>Movie Listing - {{title}}</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="/">Home</a></li>
+						<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="topbar-filter fw">
+					<p>Found <span>{{movies|length}} movies</span> in total</p>
+				</div>
+				<div class="flex-wrap-movielist mv-grid-fw">
+					{% if title == 'Upcoming' %}
+					{%for data in movies%}
+						<div class="movie-item-style-2 movie-item-style-1">
+							<img src="{{data['Poster_Links']}}" alt="">
+							<div class="hvr-inner">
+								<form action="/moviedetails" method="GET">
+									<button type="submit" name="upcoming" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a> Read more </a></h6>
+									</button>
+								</form>
+	            			</div>
+							<div class="mv-item-infor">
+								<h6><a>{{data['Movie_Title']}}</a></h6>
+								<p class="rate"><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+							</div>
+						</div>
+					{%endfor%}
+					{%elif title == 'Trending'%}
+					{%for data in movies%}
+						<div class="movie-item-style-2 movie-item-style-1">
+							<img src="{{data['Poster_Links']}}" alt="">
+							<div class="hvr-inner">
+								<form action="/moviedetails" method="GET">
+									<button type="submit" name="trending" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a> Read more </a></h6>
+									</button>
+								</form>
+	            			</div>
+							<div class="mv-item-infor">
+								<form action="/" method="POST">
+									<button type="submit" name="search" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a>{{data['Movie_Title']}}</a></h6>
+									</button>
+								</form>
+								<p class="rate"><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+							</div>
+						</div>
+					{%endfor%}
+					{%elif title == 'Popular'%}
+					{%for data in movies%}
+						<div class="movie-item-style-2 movie-item-style-1">
+							<img src="{{data['Poster_Links']}}" alt="">
+							<div class="hvr-inner">
+								<form action="/moviedetails" method="GET">
+									<button type="submit" name="popular" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a> Read more </a></h6>
+									</button>
+								</form>
+	            			</div>
+							<div class="mv-item-infor">
+								<form action="/" method="POST">
+									<button type="submit" name="search" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a>{{data['Movie_Title']}}</a></h6>
+									</button>
+								</form>
+								<p class="rate"><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+							</div>
+						</div>
+					{%endfor%}
+					{%elif title == 'Top Rated'%}
+					{%for data in movies%}
+						<div class="movie-item-style-2 movie-item-style-1">
+							<img src="{{data['Poster_Links']}}" alt="">
+							<div class="hvr-inner">
+								<form action="/moviedetails" method="GET">
+									<button type="submit" name="top_rated" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a> Read more </a></h6>
+									</button>
+								</form>
+	            			</div>
+							<div class="mv-item-infor">
+								<form action="/" method="POST">
+									<button type="submit" name="search" class="mv-item-infor"
+										style="background: transparent !important;border: 0px;"
+										value="{{data['Movie_Title']}}">
+										<h6><a>{{data['Movie_Title']}}</a></h6>
+									</button>
+								</form>
+								<p class="rate"><i class="ion-android-star"></i><span>{{data['Rating']}}</span> /10</p>
+							</div>
+						</div>
+					{%endfor%}
+					{%endif%}
+				</div>		
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body %}

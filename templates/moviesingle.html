@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="hero mv-single-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- <h1> movie listing - list</h1>
+				<ul class="breadcumb">
+					<li class="active"><a href="#">Home</a></li>
+					<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+				</ul> -->
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single movie-single movie_single">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="movie-img sticky-sb">
+					<img src="{{movie['Poster_Links'][0]}}" alt="">
+					{%if movie['Videos'][0]['Url'] != None %}
+					<div class="movie-btn">
+						<div class="btn-transform transform-vertical red">
+							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i>Watch Trailer</a></div>		
+							<div><a href="https://www.youtube.com/embed/{{movie['Videos'][0]['Url']}}"
+									class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>
+							</div>
+						</div>
+					</div>
+					{%endif%}
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="movie-single-ct main-content">
+					<h1 class="bd-hd">{{movie['Movie_Title'][0]}} <span>{{movie['ReleaseDate'][0][:4]}}</span></h1>
+					
+					<div class="movie-tabs">
+						<div class="tabs">
+							<ul id="tab" class="tab-links tabs-mv">
+								<li class="active"><a href="#overview">Overview</a></li>
+								<li><a href="#reviews"> Reviews</a></li>
+								<li><a href="#media"> Media</a></li>
+								<li><a href="#moviesrelated"> Related Movies</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="overview" class="tab active">
+									<div class="row">
+										<div class="col-md-8 col-sm-12 col-xs-12">
+											<p>{{movie['Overview'][0]}}</p>
+											<div class="title-hd-sm">
+												<h4>Videos & Photos</h4>
+												<p style="color: #4280bf;" class="time">
+													<a >All {{(movie["Videos"])|length}}
+													Videos & {{(movie["Images"])|length}} Photos see in media tab</a>
+													</p>
+											</div>
+											<div class="mvsingle-item ov-item">
+												{% for i in range(3) %}
+												<a class="img-lightbox  col-md-4" data-fancybox-group="gallery"
+													href="{{movie['Images'][i]}}"><img src="{{movie['Images'][i]}}"
+														alt=""></a>
+												{% endfor %}
+											</div>
+											<div class="title-hd-sm">
+												<h4>cast</h4>
+											</div>
+											<!-- movie cast -->
+											<div class="mvcast-item">
+												{%for itr in range(0, (movie['Cast'])|length)%}
+												<div class="cast-it">
+													<div class="cast-left">
+														<img width=20% src="{{movie['Cast'][itr]['profile_path']}}"
+															alt="">
+														{% set lv_cast = movie['Cast'][itr]['name'] %}
+														{% set lv_url = lv_cast.replace(' ', '+') %}
+														<a
+															href="http://www.google.com/search?q={{lv_url}}">{{movie['Cast'][itr]['name']}}</a>
+													</div>
+													<p>{{movie['Cast'][itr]['character']}}</p>
+													<p> Popularity:{{movie['Cast'][itr]['popularity']}}</p>
+												</div>
+												{%endfor%}
+											</div>
+										</div>
+										<div class="col-md-4 col-xs-12 col-sm-12">
+											<div class="sb-it">
+												<h6>Director: </h6>
+												<p>
+													{%for director in movie['Director']%}
+													{% set lv_url = director.replace(' ', '+') %}
+													<a href="http://www.google.com/search?q={{lv_url}}">{{director}}</a>
+													{%endfor%}
+												</p>
+											</div>
+											<div class="sb-it">
+												<h6>Writer: </h6>
+												<p>
+													{%for writer in movie['Writer']%}
+													{% set lv_url = writer.replace(' ', '+') %}
+													<a href="http://www.google.com/search?q={{lv_url}}">{{writer}}</a>
+													{%endfor%}
+												</p>
+											</div>
+											<div class="sb-it">
+												<h6>Genres:</h6>
+												<p>
+													{%for genres in movie['Genres']%}
+													{% set lv_url = genres.replace(' ', '+') %}
+													<a
+														href="http://www.google.com/search?q=Genre+{{lv_url}}">{{genres}}</a>
+													{%endfor%}
+												</p>
+											</div>
+											<div class="sb-it">
+												<h6>Release Date:</h6>
+												<p>{{movie['ReleaseDate'][0]}}</p>
+											</div>
+											<div class="sb-it">
+												<h6>Run Time:</h6>
+												<p>{{movie['Runtime'][0]}} min</p>
+											</div>
+											<div class="sb-it">
+												<h6>Popularity:</h6>
+												<p>{{movie['Popularity']}}</p>
+											</div>
+											<div class="sb-it">
+												<h6>Plot Keywords:</h6>
+												<p class="tags">
+													{%for keyword in movie['Keywords']%}
+													<span class="time"><a href="#">{{keyword}}</a></span>
+													{%endfor%}
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="reviews" class="tab review">
+									<div class="row">
+										{%for review in movie['Reviews']%}
+										<div class="mv-user-review-item">
+											<div class="user-infor"> 
+												{% if 'http' in review['author_details']['avatar_path']|string() %}
+												{% set url = review['author_details']['avatar_path']|string() %}
+												<img src="{{url[1:]}}" alt="">
+												{%else%}
+													{% set url = "https://image.tmdb.org/t/p/original" %}
+													<img src="{{url}}{{review['author_details']['avatar_path']}}" alt="">
+												{%endif%}
+												<div>
+													<h3>{{review['author_details']['rating']}} / 10</h3>
+													<div class="no-star">
+														{% for star in range(0,10) %}
+														{% if (review['author_details']['rating'])|int > star %}
+														<i class="ion-android-star"></i>
+														{% else %}
+														<i class="ion-android-star last"></i>
+														{% endif %}
+														{% endfor %}
+													</div>
+													<div class="time">Commented on {{review['created_at'][:10]}} by <a
+															href="#">
+															{{review['author']}}</a>
+													</div>
+												</div>
+											</div>
+											<p>{{review['content']}}</p>
+										</div>
+										{%endfor%}
+									</div>
+									{% if (movie['Reviews'])|length == 0 %}
+									<p>No Reviews found</p>
+									{% endif %}
+								</div>
+								<div id="media" class="tab">
+									<div class="row">
+										<div class="rv-hd">
+											<div>
+												<h3>Videos & Photos of</h3>
+												<h2>{{output['Movie_Title'][0]}}</h2>
+											</div>
+										</div>
+										<div class="title-hd-sm">
+											<h4>Videos <span> ({{(movie["Videos"])|length}}) </span></h4>
+										</div>
+										<div class="mvsingle-item media-item">
+
+											{% for video in movie["Videos"] %}
+											<div class="vd-item  col-md-4">
+												<div class="vd-it">
+													<img class="vd-img"
+														src="https://img.youtube.com/vi/{{video['Url']}}/hqdefault.jpg"
+														alt="">
+													<a class="fancybox-media hvr-grow"
+														href="https://www.youtube.com/embed/{{video['Url']}}"><img
+															src="/static/images/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a
+															href="https://www.youtube.com/embed/{{video['Url']}}">{{video['Title']}}</a>
+													</h6>
+												</div>
+											</div>
+											{%endfor%}
+										</div>
+										<div class="title-hd-sm">
+											<h4>Photos <span> ({{(movie["Images"])|length}})</span></h4>
+										</div>
+										<div class="mvsingle-item media-item">
+
+											{% for photo in movie["Images"] %}
+											<a class="img-lightbox col-md-4" data-fancybox-group="gallery"
+												href="{{photo}}"><img src="{{photo}}" alt=""></a>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+								<div id="moviesrelated" class="tab">
+									<div class="row">
+										<h3>Related Movies To</h3>
+										<h2>{{output['Movie_Title'][0]}}</h2>
+
+										{%for i in range(1, 10)%}
+										<div class="movie-item-style-2">
+											<img src="{{output['Poster_Links'][i]}}" alt="">
+											<div class="mv-item-infor">
+												<form action="/" method="POST">
+													<button type="submit" name="search" class="mv-item-infor"
+														style="background: transparent !important;border: 0px;"
+														value="{{output['Movie_Title'][i]}}">
+														<h6><a>{{output['Movie_Title'][i]}}</a></h6>
+													</button>
+												</form>
+												<p class="describe">{{output['Tag_Line'][i]}}</p>
+											</div>
+										</div>
+										{%endfor%}
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body %}
