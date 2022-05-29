@@ -48,12 +48,23 @@ For particular movie, we will get details like movie poster, overview, cast and 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Built With the help of
-
-* [Python](https://www.python.org/)
-* [Juypter Notebook](https://jupyter.org/)
-* [VS Code](https://code.visualstudio.com/)
-* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+### Project Journey
+This is how I acheived my task by doing it on 4 slots:
+Week 1:
+* Searched about all problem statements and decided project for me.
+* Learn machine learning modules like Pandas,Numpy,sklearn
+* Learned Flask
+Week 2:
+* Learned about content based filtering on recommendation engine.
+* Learned about knn and cosine similarity.
+* Prepared my machine learning model
+Week 3:
+* Started web development and on the project.
+* Created frontend and backend of project.
+* Created tmdb api key and fetched data from it.
+Week 4:
+* Continued with doing development and did changes on it.
+* Added new features like fetching video,cast etc of the movies.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -67,11 +78,16 @@ Familar with python, flask framework, bootstrap, API calls, ML Algorithms and wa
 
 ### Installation
 
+* [Python](https://www.python.org/)
+* [Juypter Notebook](https://jupyter.org/)
+* [VS Code](https://code.visualstudio.com/)
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+
 Download the project.
-System must have Python installed in it.
 
 1. Get a free TMBD API Key from [https://developers.themoviedb.org/3/getting-started/introduction)
-2. ```py
+2. Install requirements
+  ```py
    pip install -r requirements.txt
    ```
 3. Run app
