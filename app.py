@@ -448,9 +448,10 @@ def moviedetails():
         except:
             return render_template("404error.html")
 
+movies_trending = get_trending_movies()
+movies_popular = get_popular_movies()
+movies_upcoming = get_upcoming_movies()
+movies_top_rated = get_top_rated_movies()
+
 if __name__ == '__main__':
-    movies_trending = get_trending_movies()
-    movies_popular = get_popular_movies()
-    movies_upcoming = get_upcoming_movies()
-    movies_top_rated = get_top_rated_movies()
     app.run(debug=True)
