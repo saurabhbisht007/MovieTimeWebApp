@@ -54,24 +54,42 @@ For particular movie, we will get details like movie poster, overview, cast and 
 <!-- Project Journey -->
 ### Project Journey
 This is how I acheived my task by doing it on 4 slots:
-Week 1:
-* Searched about all problem statements and decided project for me.
-* Learn machine learning modules like Pandas,Numpy,sklearn
-* Learned Flask
-Week 2:
-* Learned about content based filtering on recommendation engine.
-* Learned about knn and cosine similarity.
-* Prepared my machine learning model
-Week 3:
-* Started web development and on the project.
-* Created frontend and backend of project.
-* Created tmdb api key and fetched data from it.
-Week 4:
-* Continued with doing development and did changes on it.
-* Added new features like fetching video,cast etc of the movies.
-
+  <ol>
+    <li>
+      Week:
+      <ul>
+        <li>Searched about all problem statements and decided project for me.</li>
+        <li>Learn machine learning modules like Pandas,Numpy,sklearn</li>
+        <li>Learned Flask</li>
+      </ul>
+    </li>
+    <li>
+      Week:
+      <ul>
+        <li>Learned about content based filtering on recommendation engine.</li>
+        <li>Learned about KNN and cosine similarity.</li>
+        <li>Prepared my machine learning model</li>
+      </ul>
+    </li>
+    <li>
+      Week:
+      <ul>
+        <li>Started web development and on the project.</li>
+        <li>Created frontend and backend of project.</li>
+        <li>Created tmdb api key and fetched data from it.</li>
+      </ul>
+    </li>
+  <li>
+      Week:
+      <ul>
+        <li>Continued with doing development and did changes on it.</li>
+        <li>Added new features like fetching video,cast etc of the movies.</li>
+        <li>Created tmdb api key and fetched data from it.</li>
+      </ul>
+    </li>
+  </ol>
 <p align="right">(<a href="#top">back to top</a>)</p>
-
+</li>
 
 <!-- GETTING STARTED -->
 ## Getting Started
