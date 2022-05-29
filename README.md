@@ -3,9 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <div width="30px">
-    ![](/static/images/Screen1.PNG?raw=true "Optional Title")
-  </div>
+  <img src="/static/images/logo1.png",  width="50"/>
   <h3 align="center">Movie Time </h3>
 
   <p align="center">
