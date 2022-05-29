@@ -44,8 +44,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This is web based Movie Recommendation System Project, in which we are using concepts of Machine Learning Algorithm for recommending best movies. Recommender System is a system that seeks to predict or filter preferences according to the user's choices. Our movie recommendation engine works by suggesting movies to the user based on the metadata information.
 Web app is displaying data of upcoming movies, trending movies, popular movies, and top-rated movies using TMDB API. For suggesting movies to user, we have local dataset containing more that 5k records. Using ML algo, we are suggesting best-match movies to user.
 Web app is showing real time data and status of movies.
@@ -58,7 +56,7 @@ For particular movie, we will get details like movie poster, overview, cast and 
 * [Python](https://www.python.org/)
 * [Juypter Notebook](https://jupyter.org/)
 * [VS Code](https://code.visualstudio.com/)
-* [Flask] (https://flask.palletsprojects.com/en/2.1.x/)
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
