@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="/static/images/logo1.png",  width="50"/>
+  <img src="/static/images/logo1.png",  width="100"/>
   <h3 align="center">Movie Time </h3>
 
   <p align="center">
