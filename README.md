@@ -3,8 +3,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/MovieTimeWebApp/static/images/logo1.png ">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/MovieTimeWebApp/static/images/logo1.png " width="30px>
+    ![](/static/images/Screen1.PNG?raw=true "Optional Title")
   </a>
 
   <h3 align="center">Movie Time </h3>
@@ -96,6 +96,8 @@ The will get movie suggestions similar to the movie of they are looking for.
 
 <!-- Screenshots -->
 ## Screenshots
+
+ ![](/static/images/Screen1.PNG?raw=true "Optional Title")
 
 <!-- CONTACT -->
 ## Contact
