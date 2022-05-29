@@ -23,7 +23,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#journey">Project Journey</a></li>
+        <li><a href="#project-journey">Project Journey</a></li>
       </ul>
     </li>
     <li>
@@ -107,7 +107,7 @@ Download the project.
 
 Users can visit the web app for seeing upcoming movies, trending movies, popular movies, and top-rated movies.
 They can see details of movies of there wish. Trailer, bloopers, posters etc related to movie.
-The will get movie suggestions similar to the movie of they are looking for.
+They will get movie suggestions similar to the movie of they are looking for.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
