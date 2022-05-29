@@ -64,16 +64,14 @@ For particular movie, we will get details like movie poster, overview, cast and 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-For installing this web app in you system for the below details
-
 ### Prerequisites
 
 Familar with python, flask framework, bootstrap, API calls, ML Algorithms and way to implement them, Heroku deployment.
-System must have Python installed in it.
 
 ### Installation
 
 Download the project.
+System must have Python installed in it.
 
 1. Get a free TMBD API Key from [https://developers.themoviedb.org/3/getting-started/introduction)
 2. ```py
@@ -102,7 +100,7 @@ The will get movie suggestions similar to the movie of they are looking for.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@saurabhbhisht007](https://github.com/saurabhbisht007) - email@example.com
+Your Name - [@saurabhbhisht007](https://github.com/saurabhbisht007) - Profile
 
 Project Link: [https://github.com/saurabhbisht007/MovieTime]
 
