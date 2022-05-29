@@ -457,4 +457,4 @@ movies_top_rated = get_top_rated_movies()
 
 if __name__ == '__main__':
     print("App is running")
-    app.run(debug=False)
+    app.run(debug=True)
