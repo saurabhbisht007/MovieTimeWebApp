@@ -367,8 +367,7 @@ def home():
     return render_template('index.html',movies_trending=movies_trending,
     movies_popular=movies_popular,
     movies_upcoming=movies_upcoming,
-    movies_top_rated=movies_top_rated,
-    movie_titles=df['movie_title'])
+    movies_top_rated=movies_top_rated)
 
 @app.route('/', methods=['POST', 'GET'])  # route to show the recommendation in web UI
 @cross_origin()
@@ -379,9 +378,9 @@ def moviesingle():
         try:
             title = request.form["search"]
             main_movie, suggested_movies = recommendation(title)
-            return render_template("moviesingle.html",movie=main_movie, output=suggested_movies,movie_titles=df['movie_title'])
+            return render_template("moviesingle.html",movie=main_movie, output=suggested_movies)
         except:
-            return render_template("404error.html",movie_titles=df['movie_title'])
+            return render_template("404error.html")
 
 
 @app.route("/landing")
@@ -390,23 +389,23 @@ def landing():
 
 @app.route("/404error")
 def error404():
-    return render_template('404error.html',movie_titles=df['movie_title'])
+    return render_template('404error.html')
 
 @app.route("/trending")
 def trending():
-    return render_template('moviegridfw.html',title="Trending",movies=movies_trending,movie_titles=df['movie_title'])
+    return render_template('moviegridfw.html',title="Trending",movies=movies_trending)
 
 @app.route("/popular")
 def popular():
-    return render_template('moviegridfw.html',title="Popular",movies=movies_popular,movie_titles=df['movie_title'])
+    return render_template('moviegridfw.html',title="Popular",movies=movies_popular)
 
 @app.route("/toprated")
 def toprated():
-    return render_template('moviegridfw.html',title="Top Rated",movies=movies_top_rated,movie_titles=df['movie_title'])
+    return render_template('moviegridfw.html',title="Top Rated",movies=movies_top_rated)
 
 @app.route("/upcoming")
 def upcoming():
-    return render_template('moviegridfw.html',title="Upcoming",movies=movies_upcoming,movie_titles=df['movie_title'])
+    return render_template('moviegridfw.html',title="Upcoming",movies=movies_upcoming)
 
 @app.route("/moviedetails", methods=['POST', 'GET'])
 def moviedetails():
@@ -447,14 +446,11 @@ def moviedetails():
             else:
                 pass      
         except:
-            return render_template("404error.html",movie_titles=df['movie_title'])
-
-
-movies_trending = get_trending_movies()
-movies_popular = get_popular_movies()
-movies_upcoming = get_upcoming_movies()
-movies_top_rated = get_top_rated_movies()
+            return render_template("404error.html")
 
 if __name__ == '__main__':
-    print("App is running")
+    movies_trending = get_trending_movies()
+    movies_popular = get_popular_movies()
+    movies_upcoming = get_upcoming_movies()
+    movies_top_rated = get_top_rated_movies()
     app.run(debug=True)
